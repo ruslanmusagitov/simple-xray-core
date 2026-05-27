@@ -76,7 +76,7 @@ install_xray_core() {
     curl -4 -fsSL --retry 3 -o "$tmp" "$INSTALLER_URL"
     [[ -s "$tmp" ]] || die "установщик Xray пустой"
     bash -n "$tmp"
-    bash "$tmp" @ install
+    bash "$tmp" install
     rm -f "$tmp"
 }
 
