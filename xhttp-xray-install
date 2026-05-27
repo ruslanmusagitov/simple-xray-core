@@ -75,8 +75,9 @@ install_xray_core() {
     log "Скачиваю официальный установщик Xray"
     curl -4 -fsSL --retry 3 -o "$tmp" "$INSTALLER_URL"
     [[ -s "$tmp" ]] || die "установщик Xray пустой"
+    sed -i 's/\r$//' "$tmp"
     bash -n "$tmp"
-    bash "$tmp" install
+    bash -c "$(cat "$tmp")" @ install
     rm -f "$tmp"
 }
 
